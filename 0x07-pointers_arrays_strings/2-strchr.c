@@ -14,12 +14,12 @@
 	while (*s)
 	{
 		if (*s != c)
-		s++;
+			s++;
 		else
 			return (s);
 	}
 	if (c == '\0')
 		return (s);
 
-		return (NULL);
+	return (NULL);
 }
