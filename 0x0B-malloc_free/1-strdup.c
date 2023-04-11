@@ -5,13 +5,12 @@
 /**
  *_strdup - function returns a pointer to a new string
  *@str: string
- *Return: NULL if str = NULL or if insufficient memory is available
- *	otherwise return a pointer to the duplicated string.
+ *Return: return a pointer to the duplicated string.
  */
 
 char *_strdup(char *str)
 {
-	char *strong;
+	char *new_str;
 	unsigned int i, j;
 
 	if (str == NULL)
@@ -19,13 +18,13 @@ char *_strdup(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 
-		strong = malloc(sizeof(char) * (i + 1));
+		new_str = (char *)malloc(sizeof(char) * (i + 1));
 
-	if (strong == NULL)
+	if (new_str == NULL)
 		return (NULL);
 
 	for (j = 0; j <= i; j++)
-		strong[j] = str[j];
+		new_str[j] = str[j];
 
-	return (strong);
+	return (new_str);
 }
