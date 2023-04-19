@@ -11,10 +11,10 @@
  *Return: always 0.
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int a, b;
-	int (*operation)(int, int);
+	int arg1, arg2;
+	char *op;
 
 	if (argc != 4)
 	{
@@ -22,24 +22,24 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (argv[2][1])
+	arg1 = atoi(argv[1]);
+	op = argv[2];
+	arg2 = atoi(argv[3]);
+
+	if (get_op_func(op) == NULL || op[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	operation = get_op_func(argv[2]);
-
-	if (operation == NULL)
+	if ((*op == '/' && arg2 == 0) ||
+	    (*op == '%' && arg2 == 0))
 	{
 		printf("Error\n");
-		exit(99);
+		exit(100);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	printf("%d\n", operation(a, b));
+	printf("%d\n", get_op_func(op)(arg1, arg2));
 
 	return (0);
 }
