@@ -45,3 +45,29 @@ int op_mul(int a, int b)
 {
 	return (a * b);
 }
+
+/**
+ *op_div - divides two numbers.
+ *@a: first number.
+ *@b: second number.
+ *
+ *Return: division of numbers
+ */
+
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+
+/**
+ *op_mod - calculates the module of two numbers.
+ *@a: first number.
+ *@b: second number.
+ *
+ *Return: remainder of the division of a and b.
+ */
+
+int op_mod(int a, int b)
+{
+	return (a % b);
+}
